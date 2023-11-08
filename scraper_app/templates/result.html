@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="../static/css/style.css">
+
+    <title>Amazon.nl Product Scraper Results</title>
+</head>
+  <body>
+    <div id="container">
+      <header>
+        <h1>BigShopper Amazon scraper</h1>
+      </header>
+      <div id="title">
+        <p>Description page</p>
+        <h3>{{ product.productTitle }}</h3>
+      </div>
+      <main>
+        <table>
+          <thead>
+            <tr>
+              <th>Product Title</th>
+              <th>Original Price</th>
+              <th>Sale Price</th>
+              <th>Shipping Price</th>
+              <th>Seller Name</th>
+              <th>Product Link</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for product in products %}
+              <tr>
+                <td>{{ product.productTitle }}</td>
+                <!-- Loop through related prices for the product -->
+                {% for price in product.price_set.all %}
+                  <td>{{ price.originalPrice }}</td>
+                  <td>{{ price.salePrice }}</td>
+                  <td>{{ price.shippingPrice }}</td>
+                {% endfor %}
+                <td>{{ product.sellerName }}</td>
+                <td><a href="{{ product.link }}" target="_blank">{{ product.link }}</a></td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+#container
+{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+header
+{
+    display: flex;
+    grid-column: 1 / 5;
+    font-weight: normal;
+    border-bottom: 1px solid #000;
+    margin: 0;
+}
+
+#title
+{
+    grid-column: 2 / 4;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+main
+{
+    display: flex;
+    grid-column: 1 / 5;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.topic
+{
+    font-size: 32px;
+}
+
+.prices
+{
+    color: darkred;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+table
+{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td
+{
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+tr:nth-child(even)
+{
+    background-color: #f2f2f2;
+}
+
+th
+{
+    background-color: #4CAF50;
+    color: white;
+}
